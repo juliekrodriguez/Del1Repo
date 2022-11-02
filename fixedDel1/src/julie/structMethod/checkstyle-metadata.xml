@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE checkstyle-metadata PUBLIC
+"-//eclipse-cs//DTD Check Metadata 1.1//EN"
+"http://eclipse-cs.sourceforge.net/dtds/checkstyle-metadata_1_1.dtd">
+<checkstyle-metadata>
+    <rule-group-metadata name="Structural Metrics Checks"  priority="1601">
+        <description>%StructuralMetricsChecks.desc</description>
+        
+        <rule-metadata name="%ExternalMethodReferencesCheck.name" internal-name="ExternalMethodReferencesCheck" parent="TreeWalker">
+            <alternative-name internal-name="ExternalMethodReferencesCheck" />
+            <description>%ExternalMethodReferencesCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%HalsteadOperandCheck.name" internal-name="HalsteadOperandCheck" parent="TreeWalker">
+            <alternative-name internal-name="HalsteadOperandCheck" />
+            <description>%HalsteadOperandCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%HalsteadOperatorCheck.name" internal-name="HalsteadOperatorCheck" parent="TreeWalker">
+            <alternative-name internal-name="HalsteadOperatorCheck" />
+            <description>%HalsteadOperatorCheck.desc</description>
+        </rule-metadata>
+        
+        <rule-metadata name="%HalsteadLengthCheck.name" internal-name="HalsteadLengthCheck" parent="TreeWalker">
+            <alternative-name internal-name="HalsteadLengthCheck" />
+            <description>%HalsteadLengthCheck.desc</description>
+        </rule-metadata>
+        
+    </rule-group-metadata>
+</checkstyle-metadata>
