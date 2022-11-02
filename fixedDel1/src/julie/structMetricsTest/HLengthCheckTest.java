@@ -47,7 +47,7 @@ public class HLengthCheckTest {
       TokenTypes.LITERAL_TRANSIENT, TokenTypes.LITERAL_VOLATILE, TokenTypes.LITERAL_SYNCHRONIZED,
       TokenTypes.LITERAL_NATIVE, TokenTypes.LITERAL_DEFAULT, TokenTypes.DOT, TokenTypes.DO_WHILE, 
       TokenTypes.SLIST, TokenTypes.IMPORT };
-  
+  //test
   private int[] defaultTokens = acceptableTokens;
   private int[] requiredTokens = new int[0];
   private HalsteadLengthCheck hlc = new HalsteadLengthCheck();
