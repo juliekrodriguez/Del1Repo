@@ -12,5 +12,10 @@
             <description>%StructuralMetricsCheck.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="%JCheck.name" internal-name="JCheck" parent="TreeWalker">
+            <alternative-name internal-name="JCheck" />
+            <description>%JCheck.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

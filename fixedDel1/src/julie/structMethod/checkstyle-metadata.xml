@@ -26,5 +26,10 @@
             <description>%HalsteadLengthCheck.desc</description>
         </rule-metadata>
         
+        <rule-metadata name="%MaintainabilityIndexCheck.name" internal-name="MaintainabilityIndexCheck" parent="TreeWalker">
+            <alternative-name internal-name="MaintainabilityIndexCheck" />
+            <description>%MaintainabilityIndexCheck.desc</description>
+        </rule-metadata>
+        
     </rule-group-metadata>
 </checkstyle-metadata>

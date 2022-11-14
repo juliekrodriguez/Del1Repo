@@ -2,6 +2,7 @@ package julie.structMetricsTest;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
