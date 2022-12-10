@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckstyleCheck;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 
@@ -35,7 +35,3 @@ public class MScheckstyle extends AbstractCheck{
         c = 0;
     }
   }
-
-
-
-}

@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckstyleCheck;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 
@@ -10,13 +10,13 @@ public class loopingCheck extends AbstractCheck{
     @Override
     public int[] getDefaultTokens() {
         // TODO Auto-generated method stub
-        return new int[] { TokenTypes.LITERAL_FOR, TokenTypes.LITERAL_WHILE };
+        return new int[] { TokenTypes.LITERAL_FOR, TokenTypes.LITERAL_WHILE }; // ask why does this fail??
     }
 
     @Override
     public int[] getAcceptableTokens() {
         // TODO Auto-generated method stub
-        return new int[] { TokenTypes.LITERAL_FOR, TokenTypes.LITERAL_WHILE };
+        return new int[] { TokenTypes.LITERAL_FOR, TokenTypes.LITERAL_WHILE }; // passes here-
     }
 
     @Override

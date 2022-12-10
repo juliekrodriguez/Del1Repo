@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckTests;
 import java.util.Random; 
 
 public class J2Check {
@@ -51,13 +51,11 @@ public class J2Check {
                 {
                     System.out.print(" G ");
                 }
-                if(randm == 8)
-                {
-                    System.out.print(" H ");
-                }
+               
             }
             System.out.println("");
         }
+        
         while (whileCount < 10)
         {
             System.out.print(whileCount);

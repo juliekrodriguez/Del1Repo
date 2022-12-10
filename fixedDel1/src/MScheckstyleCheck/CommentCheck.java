@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckstyleCheck;
 
 import com.puppycrawl.tools.checkstyle.api.*;
 import java.util.regex.Pattern;
@@ -8,7 +8,7 @@ public class CommentCheck extends AbstractCheck{
     int cl = 0;
     private static final String CATCH_MSH = "Total number of comments: ";
     private static final int[] COMMENT_TOKENS = { TokenTypes.BLOCK_COMMENT_BEGIN,TokenTypes.BLOCK_COMMENT_END, TokenTypes.COMMENT_CONTENT,TokenTypes.SINGLE_LINE_COMMENT};
-    @Override
+    
     public boolean isCommentNodeReq()
     {
         return true;

@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckstyleCheck;
 import com.puppycrawl.tools.checkstyle.api.*;
 import java.math.BigInteger;
 import java.util.ArrayDeque;
@@ -56,6 +56,7 @@ public class fCheck extends AbstractCheck
             TokenTypes.STAR, TokenTypes.STAR_ASSIGN, TokenTypes.UNARY_MINUS, TokenTypes.UNARY_PLUS));
     HashSet<Integer> unaryOper = new HashSet<>(Arrays.asList(TokenTypes.BNOT, TokenTypes.DEC, TokenTypes.INC, TokenTypes.POST_DEC,
             TokenTypes.POST_INC, TokenTypes.UNARY_MINUS, TokenTypes.UNARY_PLUS));
+    
     HashSet<String> uniqueOperands = new HashSet<String>();
     HashSet<Integer> uniqueOperators = new HashSet<Integer>();
 
@@ -147,7 +148,7 @@ public class fCheck extends AbstractCheck
     {
         if(forComplex.contains(ast.getType()))
         {
-            switch(ast.getType())
+            switch(ast.getType()) {
             case TokenTypes.CTOR_DEF:
             case TokenTypes.METHOD_DEF:
             case TokenTypes.INSTANCE_INIT:
@@ -225,10 +226,31 @@ public class fCheck extends AbstractCheck
                 lastline = ast.getLineNo();
             }
         }
+        }
     }
+    
     public void finishTree(DetailAST ast)
     {
+        int vocab = 0;
+        int vol = 0;
+        double perc = 0.5;
+        int length = operators + operands;
         
+        mapResults.put("length",(double)length);
+        
+        //logging met
+        log(ast.getLineNo(),"operators", operators);
+        log(0,"length", length);
+        log(0, "1", uniqueOperators.size());
+        log(0,"0",uniqueOperands.size());
+        
+        
+        //need to write tests here
+    }
+
+    public Map<String, Double> getResults() {
+        // TODO Auto-generated method stub
+        return mapResults;
     }
 
 }
