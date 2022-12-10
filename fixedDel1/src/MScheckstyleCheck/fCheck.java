@@ -21,7 +21,7 @@ public class fCheck extends AbstractCheck
     private int cyclomaticComp = 1;
     //leaving parameter to default as false.
     private boolean switchBlock=false;
-    //private final Deque<BigInteger> valueStack = new ArrayDeque<>();
+    
     public static final String MSG_KEY = "cyclomaticComplexity";
     
     private Map<String, Double> mapResults = new HashMap<String, Double>();
@@ -93,7 +93,6 @@ public class fCheck extends AbstractCheck
         if(ast.getChildCount() == 0) 
         {
             String self = ast.getText();
-            //Also maintains uniqueOperands set.
             uniqueOperands.add(self);
             return self;
         }
@@ -232,7 +231,7 @@ public class fCheck extends AbstractCheck
     public void finishTree(DetailAST ast)
     {
         int vocab = 0;
-        int vol = 0;
+        double vol = 0;
         double perc = 0.5;
         int length = operators + operands;
         
@@ -246,6 +245,55 @@ public class fCheck extends AbstractCheck
         
         
         //need to write tests here
+        mapResults.put("length", (double)length);
+        double maintain = 171 - 5.2*Math.log(vol)/Math.log(2)-0.23*cyclomaticComp-16.2*Math.log(lastline)/Math.log(2)+50*Math.sin(Math.sqrt(2.4*perc));
+        //logg
+        log(ast.getLineNo(),"operators", operators);
+        log(0,"0",uniqueOperands.size());
+        log(0,"1", uniqueOperators.size());
+        log(0, "3", operands);
+        log(0,"4",expressions);
+        log(0, "length", length);
+        if(uniqueOperators.size() != 0 && uniqueOperands.size() != 0)
+        {
+            vocab = uniqueOperators.size() + uniqueOperands.size();
+            log(0, "vocab", vocab);
+            vol = length * Math.log(vocab);
+            log(0, "volume",vol);
+            mapResults.put("vocab", (double)vocab);
+            mapResults.put("volume", vol);
+        }
+        if(uniqueOperands.size() != 0)
+        {
+            double diff = uniqueOperators.size()*operands/(uniqueOperands.size()*2);
+            double effort = diff *vol;
+            
+            mapResults.put("difficulty", diff);
+            mapResults.put("effort", effort);
+        }
+        mapResults.put("operands", (double)operands);
+        mapResults.put("operators", (double)operators);
+        mapResults.put("uniqueOperators", (double)uniqueOperators.size());
+        mapResults.put("uniqueOperands", (double)uniqueOperands.size());
+        
+        log(0, "complex", cyclomaticComp);
+        log(0, "internasls", internalCalls);
+        log(0, "external", externalCalls);
+        log(0, "lines", lastline);
+        log(0, "maintain", maintain);
+        
+        mapResults.put("maintainability", (double)maintain);
+        mapResults.put("external", (double)externalCalls);
+        
+        //finish clear
+        operands = 0;
+        operators = 0;
+        cyclomaticComp = 1;
+        externalCalls = 0;
+        expressions = 0;
+        internalCalls = 0;
+        uniqueOperators = new HashSet<>();
+        uniqueOperands = new HashSet<>();
     }
 
     public Map<String, Double> getResults() {
