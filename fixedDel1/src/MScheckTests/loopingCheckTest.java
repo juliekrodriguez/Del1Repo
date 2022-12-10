@@ -1,4 +1,4 @@
-package MScheckstyle;
+package MScheckTests;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -18,16 +18,20 @@ import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.FileText;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
-public class LoopingCheckUnitTest {
+import MScheckstyleCheck.loopingCheck;
+
+public class loopingCheckTest {
+    
     public loopingCheck unit = new loopingCheck();
     public int[] unitC =  new int[] { TokenTypes.LITERAL_FOR, TokenTypes.LITERAL_WHILE };
+    
     @Test
     public void testgetAcceptableTokens() {
         Assert.assertArrayEquals(unitC,unit.getAcceptableTokens());
     }
     @Test
     public void testgetDefaultTokens() {
-        Assert.assertArrayEquals(unitC,unit.getRequiredTokens());
+        Assert.assertArrayEquals(unitC,unit.getDefaultTokens());
     }
     @Test
     public void testgetRequiredTokens() {
@@ -39,7 +43,9 @@ public class LoopingCheckUnitTest {
     {
         loopingCheck check;
         check = firstCheckB();
+        
         int count = check.getLoopCount();
+        
         assertTrue(count == 4);
     }
     private void help(AbstractCheck check, DetailAST ast)
@@ -54,7 +60,7 @@ public class LoopingCheckUnitTest {
     private loopingCheck firstCheckB() throws IOException, CheckstyleException
     {
         String fileP = System.getProperty("user.dir");
-        File file = new File(fileP + "/src/ MScheckstyle/J2Check.java");
+        File file = new File(fileP + "/src/MScheckTests/J2Check.java");
         FileText fileTxt = new FileText(file, "UTF-8");
         FileContents fileCont = new FileContents(fileTxt);
         DetailAST root = JavaParser.parse(fileCont);
@@ -67,4 +73,5 @@ public class LoopingCheckUnitTest {
         return check;
     }
     
+
 }
